@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the init function from the injection.config library, for the Dart programming language.">
+  <title>init function - injection.config library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">bingo</a></li>
+    <li><a href="../domain_core_di_injection.config/domain_core_di_injection.config-library.html">domain&#47;core&#47;di&#47;injection.config.dart</a></li>
+    <li class="self-crumb">init function</li>
+  </ol>
+  <div class="self-name">init</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="domain_core_di_injection.config&#47;domain_core_di_injection.config-library-sidebar.html"
+      data-below-sidebar="">
+      <div>
+<h1><span class="kind-function">init</span> function 
+ 
+</h1></div>
+
+    <section class="multi-line-signature">
+        
+<span class="returntype"><a href="https://api.flutter.dev/flutter/flutter_test/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/get_it/7.7.0/get_it/GetIt-class.html">GetIt</a></span>&gt;</span></span>
+<span class="name ">init</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="init-param-getIt"><span class="type-annotation"><a href="https://pub.dev/documentation/get_it/7.7.0/get_it/GetIt-class.html">GetIt</a></span> <span class="parameter-name">getIt</span>, {</span></li>
+<li><span class="parameter" id="init-param-environment"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">environment</span>, </span></li>
+<li><span class="parameter" id="init-param-environmentFilter"><span class="type-annotation"><a href="https://pub.dev/documentation/injectable/2.5.0/injectable/EnvironmentFilter-class.html">EnvironmentFilter</a>?</span> <span class="parameter-name">environmentFilter</span>, </span></li>
+</ol>})
+
+        
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;_i174.GetIt&gt; init(
+  _i174.GetIt getIt, {
+  String? environment,
+  _i526.EnvironmentFilter? environmentFilter,
+}) async {
+  final gh = _i526.GetItHelper(
+    getIt,
+    environment,
+    environmentFilter,
+  );
+  final firebaseInjectableModule = _$FirebaseInjectableModule();
+  final appInjectionModule = _$AppInjectionModule();
+  await gh.factoryAsync&lt;_i574.FirebaseServeice&gt;(
+    () =&gt; firebaseInjectableModule.firebaseServeice(),
+    preResolve: true,
+  );
+  await gh.factoryAsync&lt;_i460.SharedPreferences&gt;(
+    () =&gt; appInjectionModule.pref(),
+    preResolve: true,
+  );
+  await gh.factoryAsync&lt;_i604.CountriesService&gt;(
+    () =&gt; appInjectionModule.getCountries(),
+    preResolve: true,
+  );
+  await gh.factoryAsync&lt;_i975.DownloadManager&gt;(
+    () =&gt; appInjectionModule.initDownloadManager(),
+    preResolve: true,
+  );
+  await gh.factoryAsync&lt;_i793.LocalNotification&gt;(
+    () =&gt; appInjectionModule.initLocalNotification(),
+    preResolve: true,
+  );
+  gh.lazySingleton&lt;_i530.RunSafely&gt;(() =&gt; _i530.RunSafely());
+  gh.lazySingleton&lt;_i892.FirebaseMessaging&gt;(
+      () =&gt; firebaseInjectableModule.firebaseMessaging);
+  gh.lazySingleton&lt;_i690.InAppPurchase&gt;(() =&gt; appInjectionModule.inAppPurchase);
+  gh.lazySingleton&lt;_i116.GoogleSignIn&gt;(() =&gt; appInjectionModule.googleSignIn);
+  gh.lazySingleton&lt;_i361.Dio&gt;(() =&gt; appInjectionModule.dio);
+  gh.lazySingleton&lt;_i605.PusherChannelsFlutter&gt;(
+      () =&gt; appInjectionModule.pusher);
+  gh.lazySingleton&lt;_i431.DeeplinkServeice&gt;(
+    () =&gt; appInjectionModule.deeplink,
+    dispose: (i) =&gt; i.dispose(),
+  );
+  gh.lazySingleton&lt;_i839.MediaDownload&gt;(() =&gt; appInjectionModule.mediaDownload);
+  gh.lazySingleton&lt;_i1011.SearchCampaignContext&gt;(
+      () =&gt; _i1011.SearchCampaignContext());
+  gh.lazySingleton&lt;_i183.GetCampainContext&gt;(() =&gt; _i183.GetCampainContext());
+  gh.lazySingleton&lt;_i850.FilterCampaignContext&gt;(
+      () =&gt; _i850.FilterCampaignContext());
+  gh.lazySingleton&lt;_i148.SaveWinnerContext&gt;(() =&gt; _i148.SaveWinnerContext());
+  gh.lazySingleton&lt;_i682.GetWinnerContext&gt;(() =&gt; _i682.GetWinnerContext());
+  gh.lazySingleton&lt;_i156.RegisterContext&gt;(() =&gt; _i156.RegisterContext());
+  gh.lazySingleton&lt;_i347.SocialSigninContext&gt;(
+      () =&gt; _i347.SocialSigninContext());
+  gh.lazySingleton&lt;_i363.UploadPdfContext&gt;(() =&gt; _i363.UploadPdfContext());
+  gh.lazySingleton&lt;_i114.SaveWinnerContext&gt;(() =&gt; _i114.SaveWinnerContext());
+  gh.lazySingleton&lt;_i686.SelectedPlatformContext&gt;(
+      () =&gt; _i686.SelectedPlatformContext());
+  gh.lazySingleton&lt;_i686.SaveGiveawayContext&gt;(
+      () =&gt; _i686.SaveGiveawayContext());
+  gh.lazySingleton&lt;_i820.GetPlatformCommentsContext&gt;(
+      () =&gt; _i820.GetPlatformCommentsContext());
+  gh.lazySingleton&lt;_i583.ProgressEventBus&gt;(() =&gt; _i583.ProgressEventBus());
+  gh.lazySingleton&lt;_i305.ProgressEventSubscriber&gt;(
+      () =&gt; _i305.ProgressEventSubscriber());
+  gh.lazySingleton&lt;_i717.GetPostContext&gt;(() =&gt; _i717.GetPostContext());
+  gh.lazySingleton&lt;_i649.WatermarkService&gt;(() =&gt; _i649.WatermarkService());
+  gh.lazySingleton&lt;_i511.UpdateCampaignContext&gt;(
+      () =&gt; _i511.UpdateCampaignContext());
+  gh.lazySingleton&lt;_i1039.CreateCampaignContext&gt;(
+      () =&gt; _i1039.CreateCampaignContext());
+  gh.lazySingleton&lt;_i1028.ScreenshotService&gt;(() =&gt; _i1028.ScreenshotService());
+  gh.lazySingleton&lt;_i457.AudioPlayerNetworkService&gt;(
+      () =&gt; _i457.AudioPlayerNetworkService());
+  gh.lazySingleton&lt;_i629.AudioPlayerService&gt;(() =&gt; _i629.AudioPlayerService());
+  gh.lazySingleton&lt;_i220.GetUserCurrentUserPosition&gt;(
+      () =&gt; _i220.GetUserCurrentUserPosition());
+  gh.lazySingleton&lt;_i1069.InstagramSigninStrategy&gt;(
+      () =&gt; _i1069.InstagramSigninStrategy(gh&lt;_i530.RunSafely&gt;()));
+  gh.lazySingleton&lt;_i519.AppleSigninStrategy&gt;(
+      () =&gt; _i519.AppleSigninStrategy(gh&lt;_i530.RunSafely&gt;()));
+  gh.lazySingleton&lt;_i161.AudioRecorderService&gt;(
+      () =&gt; _i161.AudioRecorderService(gh&lt;_i530.RunSafely&gt;()));
+  gh.lazySingleton&lt;_i356.IMyCampaignsFacade&gt;(() =&gt; _i116.IMyCampaignsFacadeImpl(
+        gh&lt;_i183.GetCampainContext&gt;(),
+        gh&lt;_i1011.SearchCampaignContext&gt;(),
+        gh&lt;_i850.FilterCampaignContext&gt;(),
+      ));
+  gh.lazySingleton&lt;_i840.IGiveawayDetailsFacade&gt;(
+      () =&gt; _i817.IGetPostDetailsFacadeImpl(gh&lt;_i717.GetPostContext&gt;()));
+  gh.lazySingleton&lt;_i944.IBetterPlayerFacade&gt;(
+      () =&gt; _i911.IBetterplayerImpl&lt;dynamic&gt;());
+  gh.lazySingleton&lt;_i109.IEditVideoFacade&gt;(() =&gt; _i633.IEditVideoImpl(
+        gh&lt;_i649.WatermarkService&gt;(),
+        gh&lt;_i530.RunSafely&gt;(),
+      ));
+  gh.lazySingleton&lt;_i855.IGiveawayCompletedFacade&gt;(
+      () =&gt; _i987.IGiveawayCompletedImpl(gh&lt;_i1028.ScreenshotService&gt;()));
+  gh.lazySingleton&lt;_i884.PusherServeice&gt;(() =&gt; _i884.PusherServeice(
+        gh&lt;_i605.PusherChannelsFlutter&gt;(),
+        gh&lt;_i460.SharedPreferences&gt;(),
+      ));
+  gh.lazySingleton&lt;_i83.IAudioPlayerNetworkFacade&gt;(
+      () =&gt; _i224.IAudioPlayerNetworkFacadeImpl(
+            gh&lt;_i530.RunSafely&gt;(),
+            gh&lt;_i457.AudioPlayerNetworkService&gt;(),
+          ));
+  gh.lazySingleton&lt;_i90.DioClient&gt;(() =&gt; _i90.DioClient(gh&lt;_i361.Dio&gt;()));
+  gh.lazySingleton&lt;_i894.InAppPurchaseServeice&gt;(
+      () =&gt; _i894.InAppPurchaseServeice(
+            gh&lt;_i690.InAppPurchase&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i103.IPreviousGiveawayFacade&gt;(
+      () =&gt; _i148.IPreviousGiveawayFacadeImpl(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+            gh&lt;_i148.SaveWinnerContext&gt;(),
+            gh&lt;_i682.GetWinnerContext&gt;(),
+          ));
+  gh.lazySingleton&lt;_i790.IAuthenticationFacade&gt;(() =&gt; _i600.IAuthenticationImpl(
+        gh&lt;_i90.DioClient&gt;(),
+        gh&lt;_i530.RunSafely&gt;(),
+        gh&lt;_i460.SharedPreferences&gt;(),
+      ));
+  gh.lazySingleton&lt;_i636.IAudioRecorderFacade&gt;(
+      () =&gt; _i693.AudioRecorderFacadeImpl(gh&lt;_i161.AudioRecorderService&gt;()));
+  gh.lazySingleton&lt;_i820.GetInstagramCommentsStrategy&gt;(
+      () =&gt; _i820.GetInstagramCommentsStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+            gh&lt;_i583.ProgressEventBus&gt;(),
+          ));
+  gh.lazySingleton&lt;_i820.GetFacebookCommentsStrategy&gt;(
+      () =&gt; _i820.GetFacebookCommentsStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+            gh&lt;_i583.ProgressEventBus&gt;(),
+          ));
+  gh.lazySingleton&lt;_i820.GetTiktokCommentsStrategy&gt;(
+      () =&gt; _i820.GetTiktokCommentsStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+            gh&lt;_i583.ProgressEventBus&gt;(),
+          ));
+  gh.lazySingleton&lt;_i820.GetYoutubeCommentsStrategy&gt;(
+      () =&gt; _i820.GetYoutubeCommentsStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+            gh&lt;_i583.ProgressEventBus&gt;(),
+          ));
+  gh.lazySingleton&lt;_i479.ILeaderBoardFacade&gt;(() =&gt; _i871.ILeaderBoardFacadeImpl(
+        gh&lt;_i90.DioClient&gt;(),
+        gh&lt;_i530.RunSafely&gt;(),
+      ));
+  gh.lazySingleton&lt;_i686.SaveBasicGiveawayStrategy&gt;(() =&gt;
+      _i686.SaveBasicGiveawayStrategy(gh&lt;_i686.SelectedPlatformContext&gt;()));
+  gh.lazySingleton&lt;_i686.SaveAdvancedGiveawayStrategy&gt;(() =&gt;
+      _i686.SaveAdvancedGiveawayStrategy(gh&lt;_i686.SelectedPlatformContext&gt;()));
+  gh.lazySingleton&lt;_i251.ICertificateFacade&gt;(() =&gt; _i785.ICertificateFacadeImpl(
+        gh&lt;_i90.DioClient&gt;(),
+        gh&lt;_i530.RunSafely&gt;(),
+        gh&lt;_i839.MediaDownload&gt;(),
+      ));
+  gh.lazySingleton&lt;_i490.IHomeFacade&gt;(() =&gt; _i941.IHomeFacadeImpl(
+        gh&lt;_i90.DioClient&gt;(),
+        gh&lt;_i530.RunSafely&gt;(),
+        gh&lt;_i460.SharedPreferences&gt;(),
+      ));
+  gh.lazySingleton&lt;_i461.IRedeemCouponsFacade&gt;(
+      () =&gt; _i780.IRedeenCouponsFacadeImpl(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i1011.OngoingCampaignSearchStrategy&gt;(
+      () =&gt; _i1011.OngoingCampaignSearchStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i1011.CompletedCampaignSearchStrategy&gt;(
+      () =&gt; _i1011.CompletedCampaignSearchStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i1011.DraftCampaignSearchStrategy&gt;(
+      () =&gt; _i1011.DraftCampaignSearchStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i1011.JoinedCampaignSearchStrategy&gt;(
+      () =&gt; _i1011.JoinedCampaignSearchStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i183.GetOnGoingCampaignStrategy&gt;(
+      () =&gt; _i183.GetOnGoingCampaignStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i183.GetCompletedCampaignStrategy&gt;(
+      () =&gt; _i183.GetCompletedCampaignStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i183.GetDraftCampaignStrategy&gt;(
+      () =&gt; _i183.GetDraftCampaignStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i183.GetArchiveCampaignStrategy&gt;(
+      () =&gt; _i183.GetArchiveCampaignStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i183.GetJoinedCampaignStrategy&gt;(
+      () =&gt; _i183.GetJoinedCampaignStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i850.OngoingCampaignFilterStrategy&gt;(
+      () =&gt; _i850.OngoingCampaignFilterStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i850.CompletedCampaignFilterStrategy&gt;(
+      () =&gt; _i850.CompletedCampaignFilterStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i850.DraftCampaignFilterStrategy&gt;(
+      () =&gt; _i850.DraftCampaignFilterStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i850.JoinedCampaignFilterStrategy&gt;(
+      () =&gt; _i850.JoinedCampaignFilterStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i682.GetGiveawayWinerDetailsStategy&gt;(
+      () =&gt; _i682.GetGiveawayWinerDetailsStategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i682.GetCampaignWinerDetailsStategy&gt;(
+      () =&gt; _i682.GetCampaignWinerDetailsStategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i325.GuestInfluencerResgisterStrategy&gt;(
+      () =&gt; _i325.GuestInfluencerResgisterStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i1071.InfluencerRegisterStrategy&gt;(
+      () =&gt; _i1071.InfluencerRegisterStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i206.UserRegisterStrategy&gt;(() =&gt; _i206.UserRegisterStrategy(
+        gh&lt;_i90.DioClient&gt;(),
+        gh&lt;_i530.RunSafely&gt;(),
+      ));
+  gh.lazySingleton&lt;_i847.GuestUserResgisterStrategy&gt;(
+      () =&gt; _i847.GuestUserResgisterStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i918.UpdateGiveawayRateing&gt;(
+      () =&gt; _i918.UpdateGiveawayRateing(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i918.UpdateCampaignRateing&gt;(
+      () =&gt; _i918.UpdateCampaignRateing(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i114.SaveGiveawayWinnerStrategy&gt;(
+      () =&gt; _i114.SaveGiveawayWinnerStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i114.SaveCampaignGiveawayWinnerStrategy&gt;(
+      () =&gt; _i114.SaveCampaignGiveawayWinnerStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i686.InstagramGiveawaySaveStrategy&gt;(
+      () =&gt; _i686.InstagramGiveawaySaveStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i686.FacebookGiveawaySaveStrategy&gt;(
+      () =&gt; _i686.FacebookGiveawaySaveStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i686.YoutubeGiveawaySaveStrategy&gt;(
+      () =&gt; _i686.YoutubeGiveawaySaveStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i686.TiktokGiveawaySaveStrategy&gt;(
+      () =&gt; _i686.TiktokGiveawaySaveStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i717.FacebookPostStrategy&gt;(() =&gt; _i717.FacebookPostStrategy(
+        gh&lt;_i90.DioClient&gt;(),
+        gh&lt;_i530.RunSafely&gt;(),
+      ));
+  gh.lazySingleton&lt;_i717.YoutubePostStrategy&gt;(() =&gt; _i717.YoutubePostStrategy(
+        gh&lt;_i90.DioClient&gt;(),
+        gh&lt;_i530.RunSafely&gt;(),
+      ));
+  gh.lazySingleton&lt;_i69.CatchInstagramDetails&gt;(() =&gt; _i69.CatchInstagramDetails(
+        gh&lt;_i90.DioClient&gt;(),
+        gh&lt;_i530.RunSafely&gt;(),
+      ));
+  gh.lazySingleton&lt;_i321.TiktokPostStrategy&gt;(() =&gt; _i321.TiktokPostStrategy(
+        gh&lt;_i90.DioClient&gt;(),
+        gh&lt;_i530.RunSafely&gt;(),
+      ));
+  gh.lazySingleton&lt;_i511.UpdateYoutubeCampaignStrategy&gt;(
+      () =&gt; _i511.UpdateYoutubeCampaignStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i511.UpdateInstagramCampaignStrategy&gt;(
+      () =&gt; _i511.UpdateInstagramCampaignStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i511.UpdateFacebookCampaignStrategy&gt;(
+      () =&gt; _i511.UpdateFacebookCampaignStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i511.UpdateTiktokCampaignStrategy&gt;(
+      () =&gt; _i511.UpdateTiktokCampaignStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i1039.CreateYoutubeCampaignStrategy&gt;(
+      () =&gt; _i1039.CreateYoutubeCampaignStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i1039.CreateInstagramCampaignStrategy&gt;(
+      () =&gt; _i1039.CreateInstagramCampaignStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i1039.CreateFacebookCampaignStrategy&gt;(
+      () =&gt; _i1039.CreateFacebookCampaignStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i1039.CreateTiktokCampaignStrategy&gt;(
+      () =&gt; _i1039.CreateTiktokCampaignStrategy(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i671.AwsUrlSignService&gt;(() =&gt; _i671.AwsUrlSignService(
+        gh&lt;_i90.DioClient&gt;(),
+        gh&lt;_i530.RunSafely&gt;(),
+      ));
+  gh.lazySingleton&lt;_i544.ICampaignDetailsFacade&gt;(
+      () =&gt; _i209.ICampaignDetailsFacadeImpl(
+            gh&lt;_i717.GetPostContext&gt;(),
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i913.IAudioPlayerFacade&gt;(
+      () =&gt; _i549.IAudioPlayerFacadeImpl(gh&lt;_i629.AudioPlayerService&gt;()));
+  gh.lazySingleton&lt;_i821.GoogleSigninStrategy&gt;(() =&gt; _i821.GoogleSigninStrategy(
+        gh&lt;_i116.GoogleSignIn&gt;(),
+        gh&lt;_i530.RunSafely&gt;(),
+      ));
+  gh.lazySingleton&lt;_i317.ICampaignFacade&gt;(() =&gt; _i1048.ICampaignFacadeImpl(
+        gh&lt;_i183.GetCampainContext&gt;(),
+        gh&lt;_i1011.SearchCampaignContext&gt;(),
+        gh&lt;_i850.FilterCampaignContext&gt;(),
+        gh&lt;_i90.DioClient&gt;(),
+        gh&lt;_i530.RunSafely&gt;(),
+      ));
+  gh.lazySingleton&lt;_i467.ICoinsFacade&gt;(() =&gt; _i636.ICoinsFacadeImpl(
+        gh&lt;_i90.DioClient&gt;(),
+        gh&lt;_i530.RunSafely&gt;(),
+        gh&lt;_i690.InAppPurchase&gt;(),
+        gh&lt;_i460.SharedPreferences&gt;(),
+      ));
+  gh.lazySingleton&lt;_i105.IReactionFacade&gt;(() =&gt; _i148.IReactionFacadeImpl(
+        gh&lt;_i90.DioClient&gt;(),
+        gh&lt;_i530.RunSafely&gt;(),
+      ));
+  gh.lazySingleton&lt;_i79.CloudMessageingService&gt;(
+      () =&gt; _i79.CloudMessageingService(gh&lt;_i892.FirebaseMessaging&gt;()));
+  gh.lazySingleton&lt;_i742.IHelpCenterFacade&gt;(() =&gt; _i108.IHelpCenterFacadeImpl(
+        gh&lt;_i90.DioClient&gt;(),
+        gh&lt;_i530.RunSafely&gt;(),
+      ));
+  gh.lazySingleton&lt;_i342.IChatFacade&gt;(() =&gt; _i688.IChatFacadeImpl(
+        gh&lt;_i884.PusherServeice&gt;(),
+        gh&lt;_i530.RunSafely&gt;(),
+        gh&lt;_i90.DioClient&gt;(),
+      ));
+  gh.lazySingleton&lt;_i555.INotificatonFacade&gt;(
+      () =&gt; _i745.INotificationFacadeImpl(
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i722.ICreatedCampaignPreviewFacade&gt;(
+      () =&gt; _i196.ICreatedCampaignPreviewFacadeImpl(
+            gh&lt;_i530.RunSafely&gt;(),
+            gh&lt;_i90.DioClient&gt;(),
+          ));
+  gh.lazySingleton&lt;_i217.UploadCampaignWinnerPdfStrategy&gt;(
+      () =&gt; _i217.UploadCampaignWinnerPdfStrategy(
+            gh&lt;_i530.RunSafely&gt;(),
+            gh&lt;_i90.DioClient&gt;(),
+          ));
+  gh.lazySingleton&lt;_i683.UploadGiveawayWinnerPdfStartegy&gt;(
+      () =&gt; _i683.UploadGiveawayWinnerPdfStartegy(
+            gh&lt;_i530.RunSafely&gt;(),
+            gh&lt;_i90.DioClient&gt;(),
+          ));
+  gh.lazySingleton&lt;_i785.GiveawayCertificateSearch&gt;(
+      () =&gt; _i785.GiveawayCertificateSearch(
+            gh&lt;_i530.RunSafely&gt;(),
+            gh&lt;_i90.DioClient&gt;(),
+          ));
+  gh.lazySingleton&lt;_i785.CampaignCertificateSearch&gt;(
+      () =&gt; _i785.CampaignCertificateSearch(
+            gh&lt;_i530.RunSafely&gt;(),
+            gh&lt;_i90.DioClient&gt;(),
+          ));
+  gh.lazySingleton&lt;_i148.SaveGiveawayWinnerImageStategy&gt;(
+      () =&gt; _i148.SaveGiveawayWinnerImageStategy(
+            dioClient: gh&lt;_i90.DioClient&gt;(),
+            runSafely: gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i148.SaveCampaignWinnerImageStategy&gt;(
+      () =&gt; _i148.SaveCampaignWinnerImageStategy(
+            dioClient: gh&lt;_i90.DioClient&gt;(),
+            runSafely: gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i1017.ICreateCampaignFacade&gt;(
+      () =&gt; _i233.ICreateCampaignFacadeImpl(
+            gh&lt;_i1039.CreateCampaignContext&gt;(),
+            gh&lt;_i511.UpdateCampaignContext&gt;(),
+            gh&lt;_i90.DioClient&gt;(),
+            gh&lt;_i530.RunSafely&gt;(),
+          ));
+  gh.lazySingleton&lt;_i98.IPickWinnerFacade&gt;(() =&gt; _i132.IPickWinnerFacadeImpl(
+        gh&lt;_i686.SaveGiveawayContext&gt;(),
+        gh&lt;_i820.GetPlatformCommentsContext&gt;(),
+        gh&lt;_i90.DioClient&gt;(),
+        gh&lt;_i530.RunSafely&gt;(),
+        gh&lt;_i686.SaveBasicGiveawayStrategy&gt;(),
+        gh&lt;_i114.SaveWinnerContext&gt;(),
+        gh&lt;_i363.UploadPdfContext&gt;(),
+      ));
+  gh.factory&lt;_i182.AudioPlayerCubit&gt;(
+      () =&gt; _i182.AudioPlayerCubit(gh&lt;_i913.IAudioPlayerFacade&gt;()));
+  gh.lazySingleton&lt;_i69.InstagramPostStrategy&gt;(() =&gt; _i69.InstagramPostStrategy(
+        gh&lt;_i90.DioClient&gt;(),
+        gh&lt;_i530.RunSafely&gt;(),
+        gh&lt;_i69.CatchInstagramDetails&gt;(),
+      ));
+  return getIt;
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">bingo</a></li>
+    <li><a href="../domain_core_di_injection.config/domain_core_di_injection.config-library.html">injection.config</a></li>
+    <li class="self-crumb">init function</li>
+</ol>
+
+    <h5>injection.config library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-left-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    bingo
+      1.5.8+53
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

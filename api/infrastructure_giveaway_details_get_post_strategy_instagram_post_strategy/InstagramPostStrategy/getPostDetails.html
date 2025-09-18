@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the getPostDetails method from the InstagramPostStrategy class, for the Dart programming language.">
+  <title>getPostDetails method - InstagramPostStrategy class - instagram_post_strategy library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">bingo</a></li>
+    <li><a href="../../infrastructure_giveaway_details_get_post_strategy_instagram_post_strategy/infrastructure_giveaway_details_get_post_strategy_instagram_post_strategy-library.html">infrastructure&#47;giveaway_details&#47;get_post_strategy&#47;instagram_post_strategy.dart</a></li>
+    <li><a href="../../infrastructure_giveaway_details_get_post_strategy_instagram_post_strategy/InstagramPostStrategy-class.html">InstagramPostStrategy</a></li>
+    <li class="self-crumb">getPostDetails method</li>
+  </ol>
+  <div class="self-name">getPostDetails</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="infrastructure_giveaway_details_get_post_strategy_instagram_post_strategy&#47;InstagramPostStrategy-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">getPostDetails</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+    </ol>
+  </div>
+<span class="returntype"><a href="../../application_core_utils_typedefs/ResultFuture.html">ResultFuture</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../domain_giveaway_details_models_post_details_response/PostDetailsResponse-class.html">PostDetailsResponse</a></span>&gt;</span></span>
+<span class="name ">getPostDetails</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="getPostDetails-param-url"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">url</span>, [</span></li>
+<li><span class="parameter" id="getPostDetails-param-params"><span class="type-annotation"><a href="../../application_core_utils_typedefs/Params.html">Params</a>?</span> <span class="parameter-name">params</span></span></li>
+</ol>])
+
+      <div class="features"><span class="feature">override</span></div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Fetches the details of a post.</p>
+<p>Parameters:</p>
+<ul>
+<li><code>params</code> (optional): The parameters required for fetching the post details.</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li><a href="../../application_core_utils_typedefs/ResultFuture.html">ResultFuture&lt;PostDetailsResponse&gt;</a>: A future containing the result
+of the fetch operation, which could be a successful <a href="../../domain_giveaway_details_models_post_details_response/PostDetailsResponse-class.html">PostDetailsResponse</a>
+or an error.</li>
+</ul>
+<p>Throws:</p>
+<ul>
+<li>Must be implemented by any subclass.</li>
+</ul>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+ResultFuture&lt;PostDetailsResponse&gt; getPostDetails(
+  String url, [
+  Params? params,
+]) async {
+  RegExp regex = RegExp(r&quot;(?:reel|p)&#47;([^&#47;?]+)&quot;);
+  Match? match = regex.firstMatch(params![&#39;video_url&#39;]);
+  if (match != null) {
+    final result = await catchInstagramDetails.execute({
+      &#39;video_url&#39;: match.group(1)!,
+      &#39;fetch_comments&#39;: params[&#39;fetch_comments&#39;],
+      &#39;selection_type&#39;: params[&#39;selection_type&#39;],
+    });
+
+    return result.fold(left, (_) {
+      return runSafely.runSafely(() async {
+        final response = await dioClient.post(
+          url,
+          data: {
+            &#39;video_url&#39;: match.group(1)!,
+            &#39;selection_type&#39;: params[&#39;selection_type&#39;],
+          },
+        );
+
+        if (response.status) {
+          return PostAdapter.fromJson(
+            data: response.responseData,
+            urlType: PostLinkType.instagram,
+          );
+        }
+        &#47;&#47; if (retry &lt; 3) {
+        &#47;&#47;   return getPostDetails(url, params);
+        &#47;&#47; }
+        throw CustomException(errMsg: &#39;Failed to get post details&#39;);
+      });
+    });
+  }
+  return left(const MainFailure.genericError(errorMsg: &#39;Inavlid Post Url&#39;));
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">bingo</a></li>
+    <li><a href="../../infrastructure_giveaway_details_get_post_strategy_instagram_post_strategy/infrastructure_giveaway_details_get_post_strategy_instagram_post_strategy-library.html">instagram_post_strategy</a></li>
+    <li><a href="../../infrastructure_giveaway_details_get_post_strategy_instagram_post_strategy/InstagramPostStrategy-class.html">InstagramPostStrategy</a></li>
+    <li class="self-crumb">getPostDetails method</li>
+</ol>
+
+    <h5>InstagramPostStrategy class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    bingo
+      1.5.8+53
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

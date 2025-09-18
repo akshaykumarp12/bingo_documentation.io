@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the build method from the CampaignFilter class, for the Dart programming language.">
+  <title>build method - CampaignFilter class - campaign_filter library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">bingo</a></li>
+    <li><a href="../../presentation_campaign_widgets_campaign_filter/presentation_campaign_widgets_campaign_filter-library.html">presentation&#47;campaign&#47;widgets&#47;campaign_filter.dart</a></li>
+    <li><a href="../../presentation_campaign_widgets_campaign_filter/CampaignFilter-class.html">CampaignFilter</a></li>
+    <li class="self-crumb">build method</li>
+  </ol>
+  <div class="self-name">build</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="presentation_campaign_widgets_campaign_filter&#47;CampaignFilter-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">build</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+    </ol>
+  </div>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+<span class="name ">build</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="build-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span></li>
+</ol>)
+
+      <div class="features"><span class="feature">override</span></div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Describes the part of the user interface represented by this widget.</p>
+<p>The framework calls this method when this widget is inserted into the tree
+in a given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> and when the dependencies of this widget change
+(e.g., an <a href="https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html">InheritedWidget</a> referenced by this widget changes). This
+method can potentially be called in every frame and should not have any side
+effects beyond building a widget.</p>
+<p>The framework replaces the subtree below this widget with the widget
+returned by this method, either by updating the existing subtree or by
+removing the subtree and inflating a new subtree, depending on whether the
+widget returned by this method can update the root of the existing
+subtree, as determined by calling <a href="https://api.flutter.dev/flutter/widgets/Widget/canUpdate.html">Widget.canUpdate</a>.</p>
+<p>Typically implementations return a newly created constellation of widgets
+that are configured with information from this widget's constructor and
+from the given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>.</p>
+<p>The given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> contains information about the location in the
+tree at which this widget is being built. For example, the context
+provides the set of inherited widgets for this location in the tree. A
+given widget might be built with multiple different <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>
+arguments over time if the widget is moved around the tree or if the
+widget is inserted into the tree in multiple places at once.</p>
+<p>The implementation of this method must only depend on:</p>
+<ul>
+<li>the fields of the widget, which themselves must not change over time,
+and</li>
+<li>any ambient state obtained from the <code>context</code> using
+<a href="https://api.flutter.dev/flutter/widgets/BuildContext/dependOnInheritedWidgetOfExactType.html">BuildContext.dependOnInheritedWidgetOfExactType</a>.</li>
+</ul>
+<p>If a widget's <a href="../../presentation_campaign_widgets_campaign_filter/CampaignFilter/build.html">build</a> method is to depend on anything else, use a
+<a href="https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a> instead.</p>
+<p>See also:</p>
+<ul>
+<li><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html">StatelessWidget</a>, which contains the discussion on performance considerations.</li>
+</ul>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Widget build(BuildContext context) {
+  return SafeArea(
+    child: BlocBuilder&lt;CampaignFilterCubit, CampaignFilterState&gt;(
+      builder: (context, state) {
+        var format = NumberFormat.currency(locale: &#39;HI&#39;);
+        var value =
+            format.format(state.minPrice.toInt()).replaceAll(&#39;INR&#39;, &#39;&#39;);
+        return Container(
+          height: context.getSize.height * 0.42,
+          width: context.getSize.width,
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              Text(
+                &#39;Filter&#39;,
+                style: font14W400.s18.w600.textColor,
+              ),
+              &#47;&#47; gapLarge,
+              &#47;&#47; const GiveawayCriteriaTitle(
+              &#47;&#47;   title: &#39;Location&#39;,
+              &#47;&#47;   isOptional: false,
+              &#47;&#47;   showHint: false,
+              &#47;&#47; ),
+              &#47;&#47; gap,
+              &#47;&#47; CustomTextFormField(
+              &#47;&#47;   readOnly: true,
+              &#47;&#47;   hintText: &#39;Global&#39;,
+              &#47;&#47;   trailing: SizedBox(
+              &#47;&#47;     width: 25,
+              &#47;&#47;     height: 25,
+              &#47;&#47;     child: CustomMaterialButton(
+              &#47;&#47;       onPressed: () {
+              &#47;&#47;         CustomNavigator.navigate(const AddLocationScreen());
+              &#47;&#47;       },
+              &#47;&#47;       child: SvgPicture.asset(AppAssets.arrowForward),
+              &#47;&#47;     ),
+              &#47;&#47;   ),
+              &#47;&#47; ),
+              &#47;&#47; gapLarge,
+              &#47;&#47; const GiveawayCriteriaTitle(
+              &#47;&#47;   title: &#39;Language&#39;,
+              &#47;&#47;   isOptional: false,
+              &#47;&#47;   showHint: false,
+              &#47;&#47; ),
+              &#47;&#47; gap,
+              &#47;&#47; CustomTextFormField(
+              &#47;&#47;   readOnly: true,
+              &#47;&#47;   hintText: &#39;Malayalam&#39;,
+              &#47;&#47;   trailing: SizedBox(
+              &#47;&#47;     width: 25,
+              &#47;&#47;     height: 25,
+              &#47;&#47;     child: CustomMaterialButton(
+              &#47;&#47;       onPressed: () {
+              &#47;&#47;         CustomNavigator.navigate(const AddLanguageScreen());
+              &#47;&#47;       },
+              &#47;&#47;       child: SvgPicture.asset(AppAssets.arrowForward),
+              &#47;&#47;     ),
+              &#47;&#47;   ),
+              &#47;&#47; ),
+              gapLarge,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const GiveawayCriteriaTitle(
+                    title: &#39;Minimum Giveaway Value&#39;,
+                    isOptional: false,
+                    showHint: false,
+                  ),
+                  Container(
+                    constraints: const BoxConstraints(minWidth: 100),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(6),
+                      border: Border.all(
+                        color: ColorResources.textColor,
+                      ),
+                    ),
+                    child: Center(
+                      child: Text(
+                        &#39;${getCurrencySymbol().trim()}${value.replaceAll(&#39;.00&#39;, &#39;&#39;)}&#39;,
+                        style: font14W500.w600.textColor,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              gapLarge,
+              SliderTheme(
+                data: SliderThemeData(
+                  activeTrackColor: ColorResources.textColor,
+                  inactiveTrackColor: ColorResources.lightGray,
+                  thumbShape: const CircleThumbShape(),
+                  overlayShape: SliderComponentShape.noOverlay,
+                  trackShape: EdgeToEdgeTrackShape(),
+                ),
+                child: Slider(
+                  min: 0.0,
+                  max: 1000000,
+                  value: state.minPrice.toDouble(),
+                  onChanged: (value) {
+                    context
+                        .read&lt;CampaignFilterCubit&gt;()
+                        .campainValueChanged(value);
+                  },
+                ),
+              ),
+              gapLarge,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const GiveawayCriteriaTitle(
+                    title: &#39;Date Filtering&#39;,
+                    isOptional: false,
+                    showHint: false,
+                  ),
+                  Container(
+                    constraints: const BoxConstraints(minWidth: 100),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(6),
+                      border: Border.all(
+                        color: ColorResources.textColor,
+                      ),
+                    ),
+                    child: Center(
+                      child: Text(
+                        state.dateFilter.toName,
+                        style: font14W500.w600.textColor,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              gapLarge,
+              SliderTheme(
+                data: SliderThemeData(
+                  activeTrackColor: ColorResources.textColor,
+                  inactiveTrackColor: ColorResources.lightGray,
+                  thumbShape: const CircleThumbShape(),
+                  overlayShape: SliderComponentShape.noOverlay,
+                  trackShape: EdgeToEdgeTrackShape(),
+                ),
+                child: Slider(
+                  divisions: 3,
+                  min: 0,
+                  max: 3,
+                  value: state.dateFilter.index.toDouble(),
+                  onChanged: (value) {
+                    switch (value) {
+                      case &gt;= 3 &amp;&amp; &lt;= 4:
+                        context
+                            .read&lt;CampaignFilterCubit&gt;()
+                            .dateFilterChanged(3);
+                      case &gt;= 2 &amp;&amp; &lt; 3:
+                        context
+                            .read&lt;CampaignFilterCubit&gt;()
+                            .dateFilterChanged(2);
+                      case &gt;= 1 &amp;&amp; &lt; 2:
+                        context
+                            .read&lt;CampaignFilterCubit&gt;()
+                            .dateFilterChanged(1);
+                      case &gt;= 0 &amp;&amp; &lt; 1:
+                        context
+                            .read&lt;CampaignFilterCubit&gt;()
+                            .dateFilterChanged(0);
+                    }
+                  },
+                ),
+              ),
+              gap,
+              gapLarge,
+              Row(
+                children: [
+                  Flexible(
+                    child: Container(
+                      height: 60,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: ColorResources.primary),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child: CustomMaterialButton(
+                          onPressed: () {
+                            if (state.isFilterApplied) {
+                              context
+                                  .read&lt;CampaignFilterCubit&gt;()
+                                  .clearFilter();
+
+                              filterRemoved.call();
+                            }
+                            Navigator.pop(context);
+                          },
+                          child: Center(
+                            child: Text(
+                              state.isFilterApplied ? &#39;CLEAR&#39; : &#39;CANCEL&#39;,
+                              style: font12W500.w600.primary,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  gapLarge,
+                  Flexible(
+                    child: Container(
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: ColorResources.primary,
+                        border: Border.all(color: ColorResources.secondary),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child: CustomMaterialButton(
+                          onPressed: () {
+                            filterApplyed.call();
+                            Navigator.pop(context);
+                          },
+                          child: Center(
+                            child: Text(
+                              &#39;APPLY&#39;,
+                              style: font12W500.w600.secondary,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
+    ),
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">bingo</a></li>
+    <li><a href="../../presentation_campaign_widgets_campaign_filter/presentation_campaign_widgets_campaign_filter-library.html">campaign_filter</a></li>
+    <li><a href="../../presentation_campaign_widgets_campaign_filter/CampaignFilter-class.html">CampaignFilter</a></li>
+    <li class="self-crumb">build method</li>
+</ol>
+
+    <h5>CampaignFilter class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    bingo
+      1.5.8+53
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

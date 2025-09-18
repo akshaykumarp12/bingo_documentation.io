@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the createScrollPosition method from the InfiniteScrollController class, for the Dart programming language.">
+  <title>createScrollPosition method - InfiniteScrollController class - infinit_scroll_carousel library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">bingo</a></li>
+    <li><a href="../../presentation_pick_winner_widgets_infinit_scroll_carousel/presentation_pick_winner_widgets_infinit_scroll_carousel-library.html">presentation&#47;pick_winner&#47;widgets&#47;infinit_scroll_carousel.dart</a></li>
+    <li><a href="../../presentation_pick_winner_widgets_infinit_scroll_carousel/InfiniteScrollController-class.html">InfiniteScrollController</a></li>
+    <li class="self-crumb">createScrollPosition method</li>
+  </ol>
+  <div class="self-name">createScrollPosition</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="presentation_pick_winner_widgets_infinit_scroll_carousel&#47;InfiniteScrollController-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">createScrollPosition</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+    </ol>
+  </div>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/ScrollPosition-class.html">ScrollPosition</a></span>
+<span class="name ">createScrollPosition</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="createScrollPosition-param-physics"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics-class.html">ScrollPhysics</a></span> <span class="parameter-name">physics</span>, </span></li>
+<li><span class="parameter" id="createScrollPosition-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/ScrollContext-class.html">ScrollContext</a></span> <span class="parameter-name">context</span>, </span></li>
+<li><span class="parameter" id="createScrollPosition-param-oldPosition"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/ScrollPosition-class.html">ScrollPosition</a>?</span> <span class="parameter-name">oldPosition</span></span></li>
+</ol>)
+
+      <div class="features"><span class="feature">override</span></div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Creates a <a href="https://api.flutter.dev/flutter/widgets/ScrollPosition-class.html">ScrollPosition</a> for use by a <a href="https://api.flutter.dev/flutter/widgets/Scrollable-class.html">Scrollable</a> widget.</p>
+<p>Subclasses can override this function to customize the <a href="https://api.flutter.dev/flutter/widgets/ScrollPosition-class.html">ScrollPosition</a>
+used by the scrollable widgets they control. For example, <a href="https://api.flutter.dev/flutter/widgets/PageController-class.html">PageController</a>
+overrides this function to return a page-oriented scroll position
+subclass that keeps the same page visible when the scrollable widget
+resizes.</p>
+<p>By default, returns a <a href="https://api.flutter.dev/flutter/widgets/ScrollPositionWithSingleContext-class.html">ScrollPositionWithSingleContext</a>.</p>
+<p>The arguments are generally passed to the <a href="https://api.flutter.dev/flutter/widgets/ScrollPosition-class.html">ScrollPosition</a> being created:</p>
+<ul>
+<li><code>physics</code>: An instance of <a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics-class.html">ScrollPhysics</a> that determines how the
+<a href="https://api.flutter.dev/flutter/widgets/ScrollPosition-class.html">ScrollPosition</a> should react to user interactions, how it should
+simulate scrolling when released or flung, etc. The value will not be
+null. It typically comes from the <a href="https://api.flutter.dev/flutter/widgets/ScrollView-class.html">ScrollView</a> or other widget that
+creates the <a href="https://api.flutter.dev/flutter/widgets/Scrollable-class.html">Scrollable</a>, or, if none was provided, from the ambient
+<a href="https://api.flutter.dev/flutter/widgets/ScrollConfiguration-class.html">ScrollConfiguration</a>.</li>
+<li><code>context</code>: A <a href="https://api.flutter.dev/flutter/widgets/ScrollContext-class.html">ScrollContext</a> used for communicating with the object
+that is to own the <a href="https://api.flutter.dev/flutter/widgets/ScrollPosition-class.html">ScrollPosition</a> (typically, this is the
+<a href="https://api.flutter.dev/flutter/widgets/Scrollable-class.html">Scrollable</a> itself).</li>
+<li><code>oldPosition</code>: If this is not the first time a <a href="https://api.flutter.dev/flutter/widgets/ScrollPosition-class.html">ScrollPosition</a> has
+been created for this <a href="https://api.flutter.dev/flutter/widgets/Scrollable-class.html">Scrollable</a>, this will be the previous instance.
+This is used when the environment has changed and the <a href="https://api.flutter.dev/flutter/widgets/Scrollable-class.html">Scrollable</a>
+needs to recreate the <a href="https://api.flutter.dev/flutter/widgets/ScrollPosition-class.html">ScrollPosition</a> object. It is null the first
+time the <a href="https://api.flutter.dev/flutter/widgets/ScrollPosition-class.html">ScrollPosition</a> is created.</li>
+</ul>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+ScrollPosition createScrollPosition(ScrollPhysics physics,
+    ScrollContext context, ScrollPosition? oldPosition) {
+  return _InfiniteScrollPosition(
+    physics: physics,
+    context: context,
+    initialItem: initialItem,
+    oldPosition: oldPosition,
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">bingo</a></li>
+    <li><a href="../../presentation_pick_winner_widgets_infinit_scroll_carousel/presentation_pick_winner_widgets_infinit_scroll_carousel-library.html">infinit_scroll_carousel</a></li>
+    <li><a href="../../presentation_pick_winner_widgets_infinit_scroll_carousel/InfiniteScrollController-class.html">InfiniteScrollController</a></li>
+    <li class="self-crumb">createScrollPosition method</li>
+</ol>
+
+    <h5>InfiniteScrollController class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    bingo
+      1.5.8+53
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

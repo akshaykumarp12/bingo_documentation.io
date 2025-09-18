@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the PickWinnerBloc constructor from Class PickWinnerBloc from the pick_winner_bloc library, for the Dart programming language.">
+  <title>PickWinnerBloc constructor - PickWinnerBloc - pick_winner_bloc library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">bingo</a></li>
+    <li><a href="../../application_pick_winner_pick_winner_bloc/application_pick_winner_pick_winner_bloc-library.html">application&#47;pick_winner&#47;pick_winner_bloc.dart</a></li>
+    <li><a href="../../application_pick_winner_pick_winner_bloc/PickWinnerBloc-class.html">PickWinnerBloc</a></li>
+    <li class="self-crumb">PickWinnerBloc constructor</li>
+  </ol>
+  <div class="self-name">PickWinnerBloc</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="application_pick_winner_pick_winner_bloc&#47;PickWinnerBloc-class-sidebar.html"
+      data-below-sidebar="">
+      <div>
+<h1><span class="kind-constructor">PickWinnerBloc</span> constructor 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+      <span class="name ">PickWinnerBloc</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="-param-winnersCubit"><span>required</span> <span class="type-annotation"><a href="../../application_pick_winner_winners_winners_cubit/WinnersCubit-class.html">WinnersCubit</a></span> <span class="parameter-name">winnersCubit</span>, </span></li>
+<li><span class="parameter" id="-param-giveawayDetailsBloc"><span>required</span> <span class="type-annotation"><a href="../../application_giveaway_details_giveaway_details_bloc/GiveawayDetailsBloc-class.html">GiveawayDetailsBloc</a></span> <span class="parameter-name">giveawayDetailsBloc</span>, </span></li>
+<li><span class="parameter" id="-param-iPickWinnerFacade"><span>required</span> <span class="type-annotation"><a href="../../domain_pick_winner_i_pick_winner_facade/IPickWinnerFacade-class.html">IPickWinnerFacade</a></span> <span class="parameter-name">iPickWinnerFacade</span>, </span></li>
+<li><span class="parameter" id="-param-postDetailsBloc"><span>required</span> <span class="type-annotation"><a href="../../application_giveaway_details_post_details_post_details_bloc/PostDetailsBloc-class.html">PostDetailsBloc</a></span> <span class="parameter-name">postDetailsBloc</span>, </span></li>
+<li><span class="parameter" id="-param-ratingCubit"><span>required</span> <span class="type-annotation"><a href="../../application_rating_rating_cubit/RatingCubit-class.html">RatingCubit</a></span> <span class="parameter-name">ratingCubit</span>, </span></li>
+<li><span class="parameter" id="-param-homeUiCubit"><span>required</span> <span class="type-annotation"><a href="../../application_home_home_ui_cubit/HomeUiCubit-class.html">HomeUiCubit</a></span> <span class="parameter-name">homeUiCubit</span>, </span></li>
+<li><span class="parameter" id="-param-authenticatonBloc"><span>required</span> <span class="type-annotation"><a href="../../application_authentication_authenticaton_bloc/AuthenticatonBloc-class.html">AuthenticatonBloc</a></span> <span class="parameter-name">authenticatonBloc</span>, </span></li>
+</ol>})
+    </section>
+    
+<section class="desc markdown">
+  <p>Creates an instance of <a href="../../application_pick_winner_pick_winner_bloc/PickWinnerBloc-class.html">PickWinnerBloc</a>.</p>
+<p>Initializes the bloc with all required dependencies and sets up event handlers
+for the complete winner selection workflow. Also initializes stream listeners
+for real-time updates from other blocs.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">PickWinnerBloc({
+  required this.winnersCubit,
+  required this.giveawayDetailsBloc,
+  required this.iPickWinnerFacade,
+  required this.postDetailsBloc,
+  required this.ratingCubit,
+  required this.homeUiCubit,
+  required this.authenticatonBloc,
+}) : super(PickWinnerState.initial()) {
+  on&lt;WinnerPicked&gt;(_winnerPicked);
+  on&lt;FirstWinnerPicked&gt;(_firstWinnerPicked);
+  on&lt;StartRecordingVideo&gt;(_startRecordingVideo);
+  on&lt;StopRecordingVideo&gt;(
+    _stopRecordingVideo,
+    transformer: debounce(
+      const Duration(seconds: 2),
+    ),
+  );
+  on&lt;ClearPickWinnerState&gt;(_clearPickWinnerState);
+  on&lt;LoadWaterMark&gt;(_loadWaterMark);
+  on&lt;ChangeOpacity&gt;(_changeOpacity);
+  on&lt;PauseRecording&gt;(_pauseRecording);
+  on&lt;ResumeRecording&gt;(_resumeRecording);
+  on&lt;RecordVideo&gt;(_recordVideo);
+  on&lt;PreloadConfetti&gt;(_preloadConfetti);
+  on&lt;SaveGiveaway&gt;(
+    _saveGiveaway,
+    transformer: droppable(),
+  );
+  on&lt;GetComments&gt;(
+    _getComments,
+    transformer: droppable(),
+  );
+  on&lt;AddComments&gt;(_addComments);
+  on&lt;PickBackupWinners&gt;(_pickBackupWinners);
+  on&lt;SaveWinners&gt;(
+    _saveWinners,
+    transformer: droppable(),
+  );
+  on&lt;FilterComments&gt;(_filterComments);
+  on&lt;GiveawayFormatChanged&gt;(_giveawayFormatChanged);
+  on&lt;CommentFetchStatusChanged&gt;(_commentFetchStatusChanged);
+  on&lt;_DeleteGiveaway&gt;(_deleteGiveaway);
+  on&lt;UpdateStarRateing&gt;(_updateStarRateing);
+  on&lt;AddProgress&gt;(_addProgress, transformer: sequential());
+  on&lt;UploadWinnerCertificate&gt;(_uploadWinnerCertificate);
+  on&lt;MessageChanged&gt;(_messageChanged);
+  on&lt;GenerateCertificate&gt;(_generateCertificate);
+
+  on&lt;RemovePickedWinnerFromList&gt;(_removePickedWinnerFromList);
+
+  &#47;&#47; STREAM THAT LISTEN FOR PICKED WinnersState
+
+  winnerStateListener = winnersCubit.stream.listen((winnerState) {
+    &#47;&#47; Logger.logSuccess(&#39;winnersCubit&#39;);
+    winnersState = winnerState;
+  });
+  &#47;&#47; STREAM THAT LISTEN FOR GiveawayDetailsState
+  giveawayStateListener =
+      giveawayDetailsBloc.stream.listen((giveawayDetails) {
+    final d = {
+      &#39;totalWinners&#39;: giveawayDetails.totalWinners,
+      &#39;backupWinners&#39;: giveawayDetails.backupWinners,
+      &#39;totalMentions&#39;: giveawayDetails.totalMentions,
+      &#39;totalCommentLikes&#39;: giveawayDetails.totalCommentLikes,
+      &#39;commentReplay&#39;: giveawayDetails.commentReplay,
+      &#39;keyWord&#39;: giveawayDetails.keyWord,
+      &#39;unwantedWord&#39;: giveawayDetails.unwantedWord,
+      &#39;start&#39;: giveawayDetails.start,
+      &#39;end&#39;: giveawayDetails.end,
+    };
+    Logger.logWarning(&#39;giveawayDetails $d&#39;);
+    giveawayDetailsState = giveawayDetails;
+  });
+
+  postStateListener = postDetailsBloc.stream.listen((postDetails) {
+    postDetailsState = postDetails;
+  });
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">bingo</a></li>
+    <li><a href="../../application_pick_winner_pick_winner_bloc/application_pick_winner_pick_winner_bloc-library.html">pick_winner_bloc</a></li>
+    <li><a href="../../application_pick_winner_pick_winner_bloc/PickWinnerBloc-class.html">PickWinnerBloc</a></li>
+    <li class="self-crumb">PickWinnerBloc constructor</li>
+</ol>
+
+    <h5>PickWinnerBloc class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-left-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    bingo
+      1.5.8+53
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

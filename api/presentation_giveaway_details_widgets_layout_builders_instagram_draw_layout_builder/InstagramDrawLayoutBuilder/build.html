@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the build method from the InstagramDrawLayoutBuilder class, for the Dart programming language.">
+  <title>build method - InstagramDrawLayoutBuilder class - instagram_draw_layout_builder library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">bingo</a></li>
+    <li><a href="../../presentation_giveaway_details_widgets_layout_builders_instagram_draw_layout_builder/presentation_giveaway_details_widgets_layout_builders_instagram_draw_layout_builder-library.html">presentation&#47;giveaway_details&#47;widgets&#47;layout_builders&#47;instagram_draw_layout_builder.dart</a></li>
+    <li><a href="../../presentation_giveaway_details_widgets_layout_builders_instagram_draw_layout_builder/InstagramDrawLayoutBuilder-class.html">InstagramDrawLayoutBuilder</a></li>
+    <li class="self-crumb">build method</li>
+  </ol>
+  <div class="self-name">build</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="presentation_giveaway_details_widgets_layout_builders_instagram_draw_layout_builder&#47;InstagramDrawLayoutBuilder-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">build</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+    </ol>
+  </div>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+<span class="name ">build</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="build-param-repetedTags"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">repetedTags</span>, </span></li>
+</ol>})
+
+      <div class="features"><span class="feature">override</span></div>
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Widget build({
+  required bool repetedTags,
+}) {
+  return BlocBuilder&lt;GiveawayDetailsBloc, GiveawayDetailsState&gt;(
+    builder: (context, state) {
+      return CustomAnimatedTextDropDown(
+        isExpand: state.pref == Preferences.rule,
+        onTap: () {
+          if (state.pref == Preferences.rule) {
+            context.read&lt;GiveawayDetailsBloc&gt;().add(
+                  const SetVisiblePref(
+                    Preferences.none,
+                  ),
+                );
+          } else {
+            context.read&lt;GiveawayDetailsBloc&gt;().add(
+                  const SetVisiblePref(
+                    Preferences.rule,
+                  ),
+                );
+          }
+        },
+        childHeight: 726,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          color: ColorResources.secondary,
+          boxShadow: [
+            BoxShadow(
+              offset: const Offset(0, 9),
+              blurRadius: 13,
+              spreadRadius: 0,
+              color: ColorResources.BLACK.withOpacity(0.09),
+            )
+          ],
+        ),
+        title: Text(
+          &#39;RULES PREFERENCES&#39;,
+          style: font12W500.textColorLite,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CustomCounter(
+              title: &#39;Total Mentions&#39;,
+              isOptional: true,
+              count: state.totalMentions,
+              onDecrementClick: () {
+                context
+                    .read&lt;GiveawayDetailsBloc&gt;()
+                    .add(const TotalMentionChanged(-1));
+              },
+              onIncrementClick: () {
+                context
+                    .read&lt;GiveawayDetailsBloc&gt;()
+                    .add(const TotalMentionChanged(1));
+              },
+            ),
+
+            &#47;&#47; gapLarge,
+            &#47;&#47; CustomCounter(
+            &#47;&#47;   title: &#39;Total Hashtag&#39;,
+            &#47;&#47;   isOptional: true,
+            &#47;&#47;   count: state.totalHashtags,
+            &#47;&#47;   onDecrementClick: () {
+            &#47;&#47;     context
+            &#47;&#47;         .read&lt;GiveawayDetailsBloc&gt;()
+            &#47;&#47;         .add(const TotalHashtagChanged(-1));
+            &#47;&#47;   },
+            &#47;&#47;   onIncrementClick: () {
+            &#47;&#47;     context
+            &#47;&#47;         .read&lt;GiveawayDetailsBloc&gt;()
+            &#47;&#47;         .add(const TotalHashtagChanged(1));
+            &#47;&#47;   },
+            &#47;&#47; ),
+            &#47;&#47; gapLarge,
+            &#47;&#47; CustomCounter(
+            &#47;&#47;   title: &#39;Post &#47; Reel Shared&#39;,
+            &#47;&#47;   isOptional: true,
+            &#47;&#47;   count: state.shareCount,
+            &#47;&#47;   onDecrementClick: () {
+            &#47;&#47;     context
+            &#47;&#47;         .read&lt;GiveawayDetailsBloc&gt;()
+            &#47;&#47;         .add(const ShareCountChanged(-1));
+            &#47;&#47;   },
+            &#47;&#47;   onIncrementClick: () {
+            &#47;&#47;     context
+            &#47;&#47;         .read&lt;GiveawayDetailsBloc&gt;()
+            &#47;&#47;         .add(const ShareCountChanged(1));
+            &#47;&#47;   },
+            &#47;&#47; ),
+            &#47;&#47; gapLarge,
+            &#47;&#47; CustomSwitchButton(
+            &#47;&#47;   title: &#39;Post&#47;Real Like&#39;,
+            &#47;&#47;   onChanged: (value) {
+            &#47;&#47;     context.read&lt;GiveawayDetailsBloc&gt;().add(
+            &#47;&#47;           LikePostOrReel(value: value),
+            &#47;&#47;         );
+            &#47;&#47;   },
+            &#47;&#47;   value: state.likePostOrReel,
+            &#47;&#47; ),
+            gapLarge,
+            &#47;&#47; if (repetedTags) ...[
+            &#47;&#47;   CustomSwitchButton(
+            &#47;&#47;     showHint: true,
+            &#47;&#47;     title: &#39;No Repeated Tags&#39;,
+            &#47;&#47;     onChanged: (value) {
+            &#47;&#47;       context.read&lt;GiveawayDetailsBloc&gt;().add(
+            &#47;&#47;             NoRepetedTags(value: value),
+            &#47;&#47;           );
+            &#47;&#47;     },
+            &#47;&#47;     value: state.noRepetedTags,
+            &#47;&#47;   ),
+            &#47;&#47;   gapLarge
+            &#47;&#47; ],
+
+            if (context.watch&lt;PickWinnerBloc&gt;().state.format ==
+                GiveawayFormat.campaign) ...[
+              GiveawayCriteriaTitle(
+                title: &#39;Pages the user must follow&#39;,
+                onPressed: () {
+                  CustomDialog.showCustomDialog(
+                    chid: const HintWidget(
+                      title: &#39;Pages the user must follow&#39;,
+                      content:
+                          &#39;The Pages the user must follow, Please note that you need to mannually check the user is following.&#39;,
+                    ),
+                  );
+                },
+              ),
+              gapLarge,
+              Container(
+                width: double.infinity,
+                height: 55,
+                decoration: BoxDecoration(
+                  color: ColorResources.lightGray,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    gapLarge,
+                    Expanded(
+                      child: TextFormField(
+                        controller: _controller,
+                        cursorColor: ColorResources.GREY2,
+                        style: caption,
+                        onTapOutside: (event) {
+                          FocusScope.of(context).unfocus();
+                        },
+                        decoration: InputDecoration(
+                          hintStyle: caption.copyWith(
+                            color: ColorResources.GREY2,
+                          ),
+                          hintText: &#39;Paste Profile Link&#39;,
+                        ),
+                        maxLines: 1,
+                        onChanged: (value) {
+                          context
+                              .read&lt;GiveawayDetailsBloc&gt;()
+                              .add(FollowPageUrlChange(value));
+                        },
+                      ),
+                    ),
+                    Container(
+                      height: 30,
+                      width: 2,
+                      color: const Color(0xffC0BDC8),
+                    ),
+                    gapLarge,
+                    CustomMaterialButton(
+                      width: 35,
+                      onPressed: () {
+                        context
+                            .read&lt;GiveawayDetailsBloc&gt;()
+                            .add(const ApplyFollowPageUrl());
+                        _controller.clear();
+                      },
+                      child: Text(
+                        &#39;Apply&#39;,
+                        style: rubik600.red,
+                      ),
+                    ),
+                    gapLarge,
+                  ],
+                ),
+              ),
+              gapLarge,
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: List.generate(
+                  state.pagesUserMustFollow.length,
+                  (index) {
+                    return Container(
+                      height: 40,
+                      padding: const EdgeInsets.only(left: 16, right: 8),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: ColorResources.primary,
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            &#39;@${extractInstagramUsername(state.pagesUserMustFollow[index])}&#39;,
+                            style: caption.white,
+                          ),
+                          gap,
+                          InkWell(
+                            onTap: () {
+                              context.read&lt;GiveawayDetailsBloc&gt;().add(
+                                    RemoveFollowpageUrl(index),
+                                  );
+                            },
+                            child: SvgPicture.asset(
+                              AppAssets.close,
+                              width: 24,
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+              if (state.pagesUserMustFollow.isNotEmpty) gapLarge,
+              GiveawayCriteriaTitle(
+                title: &#39;Broadcast channels the user must join&#39;,
+                onPressed: () {
+                  CustomDialog.showCustomDialog(
+                    chid: const HintWidget(
+                      title: &#39;Broadcast channels the user must join&#39;,
+                      content:
+                          &#39;Broadcast channels the user must join, Please note that you need to mannually check the user is following.&#39;,
+                    ),
+                  );
+                },
+              ),
+              gapLarge,
+              Container(
+                width: double.infinity,
+                height: 55,
+                decoration: BoxDecoration(
+                  color: ColorResources.lightGray,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    gapLarge,
+                    Expanded(
+                      child: TextFormField(
+                        controller: _controller1,
+                        cursorColor: ColorResources.GREY2,
+                        style: caption,
+                        onTapOutside: (event) {
+                          FocusScope.of(context).unfocus();
+                        },
+                        decoration: InputDecoration(
+                          hintStyle: caption.copyWith(
+                            color: ColorResources.GREY2,
+                          ),
+                          hintText: &#39;Paste Broadcast Channel Link&#39;,
+                        ),
+                        maxLines: 1,
+                        onChanged: (value) {
+                          context
+                              .read&lt;GiveawayDetailsBloc&gt;()
+                              .add(BroadcastChannelLinkChanged(value));
+                        },
+                      ),
+                    ),
+                    Container(
+                      height: 30,
+                      width: 2,
+                      color: const Color(0xffC0BDC8),
+                    ),
+                    gapLarge,
+                    CustomMaterialButton(
+                      width: 35,
+                      onPressed: () {
+                        context
+                            .read&lt;GiveawayDetailsBloc&gt;()
+                            .add(const ApplyBroadcastChannelLink());
+                        _controller1.clear();
+                      },
+                      child: Text(
+                        &#39;Apply&#39;,
+                        style: rubik600.red,
+                      ),
+                    ),
+                    gapLarge,
+                  ],
+                ),
+              ),
+              gapLarge,
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: List.generate(
+                  state.brodcastChannelList.length,
+                  (index) {
+                    return Container(
+                      height: 40,
+                      padding: const EdgeInsets.only(left: 16, right: 8),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: ColorResources.primary,
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          SizedBox(
+                            width: context.getSize.width - 88,
+                            child: Text(
+                              state.brodcastChannelList[index],
+                              style: caption.white,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          gap,
+                          InkWell(
+                            onTap: () {
+                              context.read&lt;GiveawayDetailsBloc&gt;().add(
+                                    RemoveBroadcastChannelLink(index),
+                                  );
+                            },
+                            child: SvgPicture.asset(
+                              AppAssets.close,
+                              width: 24,
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+              if (state.brodcastChannelList.isNotEmpty) gapLarge,
+            ],
+
+            &#47;&#47; if (context.watch&lt;PickWinnerBloc&gt;().state.format ==
+            &#47;&#47;     GiveawayFormat.giveaway) ...[
+            &#47;&#47;   GiveawayCriteriaTitle(
+            &#47;&#47;     title: &#39;Comment Likes&#39;,
+            &#47;&#47;     onPressed: () {
+            &#47;&#47;       CustomDialog.showCustomDialog(
+            &#47;&#47;         chid: const HintWidget(
+            &#47;&#47;           title: &#39;Comment Likes&#39;,
+            &#47;&#47;           content: &#39;Total No Of Likes On Comments Of The Post&#39;,
+            &#47;&#47;         ),
+            &#47;&#47;       );
+            &#47;&#47;     },
+            &#47;&#47;   ),
+            &#47;&#47;   gapLarge,
+            &#47;&#47;   CustomTextFormField(
+            &#47;&#47;     hintText: &#39;Total likes&#39;,
+            &#47;&#47;     fontStyle: FontStyle.italic,
+            &#47;&#47;     textInputType: TextInputType.number,
+            &#47;&#47;     onChanged: (value) {
+            &#47;&#47;       final like = num.tryParse(value);
+
+            &#47;&#47;       context.read&lt;GiveawayDetailsBloc&gt;().add(
+            &#47;&#47;             TotalCommentLikesChaned(like ?? 0),
+            &#47;&#47;           );
+            &#47;&#47;     },
+            &#47;&#47;   ),
+            &#47;&#47;   gapLarge,
+            &#47;&#47;   GiveawayCriteriaTitle(
+            &#47;&#47;     title: &#39;Comment Reply Count&#39;,
+            &#47;&#47;     onPressed: () {},
+            &#47;&#47;     showHint: false,
+            &#47;&#47;   ),
+            &#47;&#47;   gapLarge,
+            &#47;&#47;   CustomTextFormField(
+            &#47;&#47;     hintText: &#39;Total reply&#39;,
+            &#47;&#47;     fontStyle: FontStyle.italic,
+            &#47;&#47;     textInputType: TextInputType.number,
+            &#47;&#47;     onChanged: (value) {
+            &#47;&#47;       final replay = int.tryParse(value.trim());
+
+            &#47;&#47;       context.read&lt;GiveawayDetailsBloc&gt;().add(
+            &#47;&#47;             CommentReplayChanged(replay ?? 0),
+            &#47;&#47;           );
+            &#47;&#47;     },
+            &#47;&#47;   ),
+            &#47;&#47; ],
+            gapLarge,
+            GiveawayCriteriaTitle(
+              title: &#39;Keywords&#39;,
+              isOptional: true,
+              showHint: true,
+              onPressed: () {
+                CustomDialog.showCustomDialog(
+                  chid: const HintWidget(
+                    title: &#39;Keyword&#39;,
+                    content:
+                        &#39;If you want your followers to include specific keywords or hashtags in their comments, you can list them here. For example, you might want comments to include terms like “Pencil” or hashtags like “#tbt.” This option will automatically select comments that match the keywords you specify.&#39;,
+                  ),
+                );
+              },
+            ),
+            gapLarge,
+            CustomTextFormField(
+              hintText: &#39;Add keyword.....&#39;,
+              fontStyle: FontStyle.italic,
+              onChanged: (value) {
+                context.read&lt;GiveawayDetailsBloc&gt;().add(
+                      KeyWordChanged(value),
+                    );
+              },
+            ),
+            gapLarge,
+            if (repetedTags) ...[
+              GiveawayCriteriaTitle(
+                title: &#39;Unwanted Words&#39;,
+                isOptional: true,
+                showHint: true,
+                onPressed: () {
+                  CustomDialog.showCustomDialog(
+                    chid: const HintWidget(
+                      title: &#39;Unwanted Words&#39;,
+                      content:
+                          &#39;Enter the words you want to exclude from the giveaway post comments. Users who include these keywords in their comments will be removed from the list.&#39;,
+                    ),
+                  );
+                },
+              ),
+              gapLarge,
+              CustomTextFormField(
+                hintText: &#39;Enter unwanted words.....&#39;,
+                fontStyle: FontStyle.italic,
+                onChanged: (value) {
+                  context.read&lt;GiveawayDetailsBloc&gt;().add(
+                        UnwantedWordChanged(value),
+                      );
+                },
+              ),
+            ],
+            &#47;&#47; if (context.watch&lt;PickWinnerBloc&gt;().state.format ==
+            &#47;&#47;     GiveawayFormat.giveaway) ...[
+            &#47;&#47;   gapLarge,
+            &#47;&#47;   const DateFilter(),
+            &#47;&#47; ],
+
+            if (context.watch&lt;PickWinnerBloc&gt;().state.format ==
+                GiveawayFormat.campaign) ...[
+              GiveawayCriteriaTitle(
+                title: &#39;Notes&#39;,
+                isOptional: true,
+                showHint: true,
+                detailText: &#39;(You may also include links to the notes.)&#39;,
+                onPressed: () {
+                  CustomDialog.showCustomDialog(
+                    chid: const HintWidget(
+                      title: &#39;Notes&#39;,
+                      content:
+                          &#39;Enter the custom rules that you want for the giveaway.&#39;,
+                    ),
+                  );
+                },
+              ),
+              gapLarge,
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
+                ),
+                decoration: BoxDecoration(
+                  color: ColorResources.lightGray,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: TextFormField(
+                  minLines: 6,
+                  maxLines: 6,
+                  cursorColor: ColorResources.BLACKGREY,
+                  decoration: InputDecoration(
+                    hintStyle: caption.copyWith(
+                      color: ColorResources.GREY2,
+                      fontStyle: FontStyle.italic,
+                      fontSize: 14,
+                    ),
+                    hintText: &#39;Enter notes.....&#39;,
+                  ),
+                  onChanged: (value) {
+                    context.read&lt;GiveawayDetailsBloc&gt;().add(
+                          NotesChanged(value),
+                        );
+                  },
+                ),
+              ),
+            ],
+          ],
+        ),
+      );
+    },
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">bingo</a></li>
+    <li><a href="../../presentation_giveaway_details_widgets_layout_builders_instagram_draw_layout_builder/presentation_giveaway_details_widgets_layout_builders_instagram_draw_layout_builder-library.html">instagram_draw_layout_builder</a></li>
+    <li><a href="../../presentation_giveaway_details_widgets_layout_builders_instagram_draw_layout_builder/InstagramDrawLayoutBuilder-class.html">InstagramDrawLayoutBuilder</a></li>
+    <li class="self-crumb">build method</li>
+</ol>
+
+    <h5>InstagramDrawLayoutBuilder class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    bingo
+      1.5.8+53
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

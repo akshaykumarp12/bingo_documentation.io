@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the build method from the UploadProfileScreen class, for the Dart programming language.">
+  <title>build method - UploadProfileScreen class - upload_profile_screen library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">bingo</a></li>
+    <li><a href="../../presentation_authentication_upload_profile_upload_profile_screen/presentation_authentication_upload_profile_upload_profile_screen-library.html">presentation&#47;authentication&#47;upload_profile&#47;upload_profile_screen.dart</a></li>
+    <li><a href="../../presentation_authentication_upload_profile_upload_profile_screen/UploadProfileScreen-class.html">UploadProfileScreen</a></li>
+    <li class="self-crumb">build method</li>
+  </ol>
+  <div class="self-name">build</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="presentation_authentication_upload_profile_upload_profile_screen&#47;UploadProfileScreen-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">build</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+    </ol>
+  </div>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+<span class="name ">build</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="build-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span></li>
+</ol>)
+
+      <div class="features"><span class="feature">override</span></div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Describes the part of the user interface represented by this widget.</p>
+<p>The framework calls this method when this widget is inserted into the tree
+in a given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> and when the dependencies of this widget change
+(e.g., an <a href="https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html">InheritedWidget</a> referenced by this widget changes). This
+method can potentially be called in every frame and should not have any side
+effects beyond building a widget.</p>
+<p>The framework replaces the subtree below this widget with the widget
+returned by this method, either by updating the existing subtree or by
+removing the subtree and inflating a new subtree, depending on whether the
+widget returned by this method can update the root of the existing
+subtree, as determined by calling <a href="https://api.flutter.dev/flutter/widgets/Widget/canUpdate.html">Widget.canUpdate</a>.</p>
+<p>Typically implementations return a newly created constellation of widgets
+that are configured with information from this widget's constructor and
+from the given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>.</p>
+<p>The given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> contains information about the location in the
+tree at which this widget is being built. For example, the context
+provides the set of inherited widgets for this location in the tree. A
+given widget might be built with multiple different <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>
+arguments over time if the widget is moved around the tree or if the
+widget is inserted into the tree in multiple places at once.</p>
+<p>The implementation of this method must only depend on:</p>
+<ul>
+<li>the fields of the widget, which themselves must not change over time,
+and</li>
+<li>any ambient state obtained from the <code>context</code> using
+<a href="https://api.flutter.dev/flutter/widgets/BuildContext/dependOnInheritedWidgetOfExactType.html">BuildContext.dependOnInheritedWidgetOfExactType</a>.</li>
+</ul>
+<p>If a widget's <a href="../../presentation_authentication_upload_profile_upload_profile_screen/UploadProfileScreen/build.html">build</a> method is to depend on anything else, use a
+<a href="https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a> instead.</p>
+<p>See also:</p>
+<ul>
+<li><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html">StatelessWidget</a>, which contains the discussion on performance considerations.</li>
+</ul>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Widget build(BuildContext context) {
+  return PopScope(
+    canPop: false,
+    child: Scaffold(
+      backgroundColor: ColorResources.primary,
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
+        leadingWidth: 58,
+        &#47;&#47; leading: Row(
+        &#47;&#47;   children: [
+        &#47;&#47;     const Gap(16),
+        &#47;&#47;     InkWell(
+        &#47;&#47;       splashColor: Colors.transparent,
+        &#47;&#47;       splashFactory: NoSplash.splashFactory,
+        &#47;&#47;       onTap: () {
+        &#47;&#47;         Navigator.pop(context);
+        &#47;&#47;       },
+        &#47;&#47;       child: SvgPicture.asset(
+        &#47;&#47;         AppAssets.backIcon,
+        &#47;&#47;       ),
+        &#47;&#47;     ),
+        &#47;&#47;   ],
+        &#47;&#47; ),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            SvgPicture.asset(
+              AppAssets.appIcon,
+              height: 33,
+              width: 33,
+            ),
+            gapLarge,
+            Text(
+              &quot;Create Your Account&quot;,
+              style: font12W500.s20.w700.secondary,
+            ),
+            Text(
+              &#39;Create an account and start exploring today!&#39;,
+              style: font14W400.secondary,
+            ),
+            const Spacer(),
+            BlocBuilder&lt;AuthenticatonBloc, AuthenticatonState&gt;(
+              builder: (context, state) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    DottedBorder(
+                      dashPattern: const [10.0],
+                      strokeWidth: 3,
+                      borderType: BorderType.RRect,
+                      radius: const Radius.circular(100),
+                      color: ColorResources.secondary,
+                      child: SizedBox(
+                        height: 150,
+                        width: 150,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(100),
+                          child: CustomMaterialButton(
+                            onPressed: () {
+                              PickImages.callPicker(
+                                onCompleted: (path) {
+                                  context.read&lt;AuthenticatonBloc&gt;().add(
+                                        PickProfileImage(path),
+                                      );
+                                },
+                              );
+                            },
+                            child: state.profile != null
+                                ? Padding(
+                                    padding: const EdgeInsets.all(4),
+                                    child: ClipRRect(
+                                      borderRadius:
+                                          BorderRadius.circular(100),
+                                      child: Image.file(state.profile!),
+                                    ),
+                                  )
+                                : SvgPicture.asset(
+                                    height: 50,
+                                    width: 50,
+                                    AppAssets.cameraPlus,
+                                    colorFilter: const ColorFilter.mode(
+                                      ColorResources.secondary,
+                                      BlendMode.srcIn,
+                                    ),
+                                  ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
+            const Spacer(),
+            BlocBuilder&lt;AuthenticatonBloc, AuthenticatonState&gt;(
+              builder: (context, state) {
+                return Container(
+                  width: context.getSize.width - 32,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(
+                      color: ColorResources.secondary,
+                    ),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: CustomMaterialButton(
+                      onPressed: () {
+                        if (state.profileImageValid) {
+                          context.read&lt;AuthenticatonBloc&gt;().add(
+                                UpdateProfileImage(
+                                  isAutoApprove: context
+                                      .read&lt;HomeUiCubit&gt;()
+                                      .state
+                                      .homeDetails
+                                      ?.userSettings
+                                      ?.isAutoApproved,
+                                ),
+                              );
+                        } else {
+                          CustomAlertDialog.showCustomDialog(
+                            title: &#39;Pick profile image&#39;,
+                            typeAlert: TypeAlert.error,
+                          );
+                        }
+                        &#47;&#47; if (state.role == UserRole.influencer) {
+                        &#47;&#47;   CustomNavigator.navigateAndRemoveUntil(
+                        &#47;&#47;       const WaitingApprovelScreen());
+                        &#47;&#47; } else {
+                        &#47;&#47;   CustomNavigator.navigateAndRemoveUntil(
+                        &#47;&#47;       const LeaderBoardScreen());
+                        &#47;&#47; }
+                      },
+                      child: state.loading
+                          ? const CustomProgressIndicater()
+                          : Text(
+                              &#39;UPLOAD PHOTO&#39;,
+                              style: font14W500.w600.secondary,
+                            ),
+                    ),
+                  ),
+                );
+              },
+            ),
+            gapLarge,
+          ],
+        ),
+      ),
+    ),
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">bingo</a></li>
+    <li><a href="../../presentation_authentication_upload_profile_upload_profile_screen/presentation_authentication_upload_profile_upload_profile_screen-library.html">upload_profile_screen</a></li>
+    <li><a href="../../presentation_authentication_upload_profile_upload_profile_screen/UploadProfileScreen-class.html">UploadProfileScreen</a></li>
+    <li class="self-crumb">build method</li>
+</ol>
+
+    <h5>UploadProfileScreen class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    bingo
+      1.5.8+53
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

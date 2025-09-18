@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the build method from the ProfileScreens class, for the Dart programming language.">
+  <title>build method - ProfileScreens class - profile_screen library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">bingo</a></li>
+    <li><a href="../../presentation_profile_profile_screen/presentation_profile_profile_screen-library.html">presentation&#47;profile&#47;profile_screen.dart</a></li>
+    <li><a href="../../presentation_profile_profile_screen/ProfileScreens-class.html">ProfileScreens</a></li>
+    <li class="self-crumb">build method</li>
+  </ol>
+  <div class="self-name">build</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="presentation_profile_profile_screen&#47;ProfileScreens-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">build</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+    </ol>
+  </div>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+<span class="name ">build</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="build-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span></li>
+</ol>)
+
+      <div class="features"><span class="feature">override</span></div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Describes the part of the user interface represented by this widget.</p>
+<p>The framework calls this method when this widget is inserted into the tree
+in a given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> and when the dependencies of this widget change
+(e.g., an <a href="https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html">InheritedWidget</a> referenced by this widget changes). This
+method can potentially be called in every frame and should not have any side
+effects beyond building a widget.</p>
+<p>The framework replaces the subtree below this widget with the widget
+returned by this method, either by updating the existing subtree or by
+removing the subtree and inflating a new subtree, depending on whether the
+widget returned by this method can update the root of the existing
+subtree, as determined by calling <a href="https://api.flutter.dev/flutter/widgets/Widget/canUpdate.html">Widget.canUpdate</a>.</p>
+<p>Typically implementations return a newly created constellation of widgets
+that are configured with information from this widget's constructor and
+from the given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>.</p>
+<p>The given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> contains information about the location in the
+tree at which this widget is being built. For example, the context
+provides the set of inherited widgets for this location in the tree. A
+given widget might be built with multiple different <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>
+arguments over time if the widget is moved around the tree or if the
+widget is inserted into the tree in multiple places at once.</p>
+<p>The implementation of this method must only depend on:</p>
+<ul>
+<li>the fields of the widget, which themselves must not change over time,
+and</li>
+<li>any ambient state obtained from the <code>context</code> using
+<a href="https://api.flutter.dev/flutter/widgets/BuildContext/dependOnInheritedWidgetOfExactType.html">BuildContext.dependOnInheritedWidgetOfExactType</a>.</li>
+</ul>
+<p>If a widget's <a href="../../presentation_profile_profile_screen/ProfileScreens/build.html">build</a> method is to depend on anything else, use a
+<a href="https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a> instead.</p>
+<p>See also:</p>
+<ul>
+<li><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html">StatelessWidget</a>, which contains the discussion on performance considerations.</li>
+</ul>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Widget build(BuildContext context) {
+  return BlocConsumer&lt;AuthenticatonBloc, AuthenticatonState&gt;(
+    listener: (context, state) {
+      if (state.logoutSuccessOption.isSome()) {
+        context.read&lt;AuthenticatonBloc&gt;().add(const ClearLogoutOption());
+        context.read&lt;HomeUiCubit&gt;().clearHomeState();
+      }
+    },
+    builder: (context, state) {
+      return Scaffold(
+        &#47;&#47; backgroundColor: ColorResources.primary,
+        appBar: AppBar(
+          toolbarHeight: 225,
+          automaticallyImplyLeading: false,
+          backgroundColor: ColorResources.primary,
+          surfaceTintColor: ColorResources.primary,
+          flexibleSpace: FlexibleSpaceBar(
+            background: Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                Container(
+                  color: ColorResources.primary,
+                  child: Column(
+                    children: [
+                      const Gap(40),
+                      Row(
+                        children: [
+                          const Gap(16),
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            splashFactory: NoSplash.splashFactory,
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: SvgPicture.asset(
+                              AppAssets.backIcon,
+                            ),
+                          ),
+                          const Spacer(),
+                          Text(
+                            &#39;Profile&#39;,
+                            style: font14W500.s20.w700.secondary,
+                          ),
+                          const Spacer(),
+                          const Gap(56),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  bottom: -3,
+                  child: Container(
+                    width: context.getSize.width,
+                    height: 80,
+                    color: ColorResources.secondary,
+                  ),
+                ),
+                Positioned(
+                  bottom: 30,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(6),
+                        height: 96,
+                        width: 96,
+                        decoration: BoxDecoration(
+                          color: ColorResources.secondary,
+                          borderRadius: BorderRadius.circular(100),
+                          boxShadow: const [
+                            BoxShadow(
+                              offset: Offset(0, 5),
+                              color: Color(0x05000000),
+                              blurRadius: 13.5,
+                            )
+                          ],
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(100),
+                          child: BlocBuilder&lt;AuthenticatonBloc,
+                              AuthenticatonState&gt;(
+                            builder: (context, state) {
+                              return state.profile != null
+                                  ? Image.file(state.profile!)
+                                  : CustomCachedNetworkImage(
+                                      url: state.userDetails?.photoUrl ??
+                                          profileImage,
+                                    );
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  bottom: 22,
+                  child: Container(
+                    height: 24,
+                    width: 24,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(100),
+                      color: ColorResources.secondary,
+                      boxShadow: const [
+                        BoxShadow(
+                          offset: Offset(0, 5),
+                          color: Color(0x05000000),
+                          blurRadius: 13.5,
+                        )
+                      ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(100),
+                      child: CustomMaterialButton(
+                        onPressed: () {
+                          PickImages.callPicker(
+                            onCompleted: (path) {
+                              context.read&lt;AuthenticatonBloc&gt;()
+                                ..add(
+                                  PickProfileImage(path),
+                                )
+                                ..add(
+                                  const UpdateProfileImage(
+                                    navigate: false,
+                                  ),
+                                );
+                            },
+                          );
+                        },
+                        child: SvgPicture.asset(
+                          AppAssets.cameraPlus,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    gapLarge,
+                    Text(
+                      (state.userDetails?.socialName ??
+                              state.userDetails?.username ??
+                              &#39;&#39;)
+                          .capitalize,
+                      style: font14W400.s18.w600.textColor,
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 25,
+                      child: CustomMaterialButton(
+                        onPressed: () {
+                          CustomNavigator.navigate(const UpdateNameScreen());
+                        },
+                        child: SvgPicture.asset(
+                          AppAssets.edit,
+                          colorFilter: const ColorFilter.mode(
+                            ColorResources.textColor,
+                            BlendMode.srcIn,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: [
+              gapLarge,
+              gapLarge,
+              ...[
+                if (context.user?.email != null)
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 8),
+                    width: context.getSize.width - 32,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: ColorResources.secondary,
+                      boxShadow: const [
+                        BoxShadow(
+                          offset: Offset(0, 8),
+                          color: Color(0x05000000),
+                          blurRadius: 18.6,
+                        )
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          &#39;Email ID&#39;,
+                          style: font14W500.textColor,
+                        ),
+                        Text(
+                          context.user?.email ?? &#39;&#39;,
+                          style: font14W400.textColor,
+                        ),
+                      ],
+                    ),
+                  ),
+                gapLarge,
+              ],
+              if (state.userDetails?.password != null) ...[
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  width: context.getSize.width - 32,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: ColorResources.secondary,
+                    boxShadow: const [
+                      BoxShadow(
+                        offset: Offset(0, 8),
+                        color: Color(0x05000000),
+                        blurRadius: 18.6,
+                      )
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              &#39;Password&#39;,
+                              style: font14W500.textColor,
+                            ),
+                            Text(
+                              &#39;******************&#39;,
+                              style: font14W400.textColor,
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 30,
+                        child: CustomMaterialButton(
+                          onPressed: () {
+                            CustomNavigator.navigate(
+                              const CreateNewPasswordScreen(),
+                            );
+                          },
+                          child: SvgPicture.asset(
+                            AppAssets.editPen,
+                            height: 24,
+                            width: 24,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                gapLarge,
+              ],
+              if (state.userDetails?.socialId != null)
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  width: context.getSize.width - 32,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: ColorResources.secondary,
+                    boxShadow: const [
+                      BoxShadow(
+                        offset: Offset(0, 8),
+                        color: Color(0x05000000),
+                        blurRadius: 18.6,
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        &#39;${state.userDetails?.loginWith?.capitalize}&#39;,
+                        style: font14W500.textColor,
+                      ),
+                      Text(
+                        &#39;${state.userDetails?.socialId}&#39;,
+                        style: font14W400.textColor,
+                      ),
+                    ],
+                  ),
+                ),
+              if (state.userDetails?.role == UserType.influencer ||
+                  state.userDetails?.upgradeToInfluencer == true) ...[
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  width: context.getSize.width - 32,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: ColorResources.secondary,
+                    boxShadow: const [
+                      BoxShadow(
+                        offset: Offset(0, 8),
+                        color: Color(0x05000000),
+                        blurRadius: 18.6,
+                      )
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              &#39;Manage Profile Links&#39;,
+                              style: font14W500.textColor,
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 30,
+                        child: CustomMaterialButton(
+                          onPressed: () {
+                            CustomNavigator.navigate(
+                              const ManageProfileLinks(),
+                            );
+                          },
+                          child: SvgPicture.asset(
+                            AppAssets.arrowForward,
+                            height: 24,
+                            width: 24,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                gapLarge,
+              ],
+            ],
+          ),
+        ),
+
+        bottomNavigationBar: Container(
+          padding: const EdgeInsets.all(16),
+          height: 120,
+          child: Column(
+            children: [
+              InkWell(
+                onTap: () {
+                  CustomDialog.showCustomDialog(
+                    chid: const AccountDeleteDialog(),
+                  );
+                },
+                child: Text(
+                  &#39;DELETE ACCOUNT&#39;,
+                  style: font14W500.w600.red,
+                ),
+              ),
+              gap,
+              Container(
+                height: 60,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(
+                    color: ColorResources.RED,
+                  ),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: CustomMaterialButton(
+                    onPressed: () {
+                      context.read&lt;AuthenticatonBloc&gt;().add(const Logout());
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(AppAssets.logout),
+                        gap,
+                        Text(
+                          &#39;LOG OUT&#39;,
+                          style: font14W500.w600.red,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">bingo</a></li>
+    <li><a href="../../presentation_profile_profile_screen/presentation_profile_profile_screen-library.html">profile_screen</a></li>
+    <li><a href="../../presentation_profile_profile_screen/ProfileScreens-class.html">ProfileScreens</a></li>
+    <li class="self-crumb">build method</li>
+</ol>
+
+    <h5>ProfileScreens class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    bingo
+      1.5.8+53
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

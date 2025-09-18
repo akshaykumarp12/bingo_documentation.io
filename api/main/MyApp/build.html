@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the build method from the MyApp class, for the Dart programming language.">
+  <title>build method - MyApp class - main library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">bingo</a></li>
+    <li><a href="../../main/main-library.html">main.dart</a></li>
+    <li><a href="../../main/MyApp-class.html">MyApp</a></li>
+    <li class="self-crumb">build method</li>
+  </ol>
+  <div class="self-name">build</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="main&#47;MyApp-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">build</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+    </ol>
+  </div>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+<span class="name ">build</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="build-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span></li>
+</ol>)
+
+      <div class="features"><span class="feature">override</span></div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Builds the root widget of the application.</p>
+<p>Returns a <a href="https://pub.dev/documentation/flutter_screenutil/5.9.3/flutter_screenutil/ScreenUtilInit-class.html">ScreenUtilInit</a> widget that provides responsive design
+capabilities and contains all the BLoC providers and main app structure.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Widget build(BuildContext context) {
+  var designSize = const Size(430, 932);
+  return ScreenUtilInit(
+    designSize: designSize,
+    fontSizeResolver: (fontSize, instance) {
+      final display = View.of(context).display;
+      final screenSize = display.size &#47; display.devicePixelRatio;
+      final scaleWidth = screenSize.width &#47; designSize.width;
+      return fontSize * scaleWidth;
+    },
+    minTextAdapt: true,
+    splitScreenMode: true,
+    builder: (context, child) {
+      return MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) =&gt; ChatCubit(
+              sl&lt;IChatFacade&gt;(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) =&gt; HomeUiCubit(
+              iHomeFacade: sl&lt;IHomeFacade&gt;(),
+              chatCubit: BlocProvider.of&lt;ChatCubit&gt;(context),
+            ),
+          ),
+          BlocProvider(
+            create: (context) =&gt; RatingCubit(),
+          ),
+          BlocProvider(
+            create: (context) =&gt; PostDetailsBloc(
+              sl&lt;IGiveawayDetailsFacade&gt;(),
+            ),
+          ),
+          BlocProvider(
+            lazy: false,
+            create: (context) =&gt; GiveawayDetailsBloc(
+              homeUiCubit: BlocProvider.of&lt;HomeUiCubit&gt;(context),
+              postDetailsBloc: BlocProvider.of&lt;PostDetailsBloc&gt;(context),
+            ),
+          ),
+          BlocProvider(
+            create: (context) =&gt; WinnersCubit(),
+          ),
+          BlocProvider(
+            lazy: false,
+            create: (context) =&gt; AuthenticatonBloc(
+              registerContext: sl&lt;RegisterContext&gt;(),
+              iAuthenticationFacade: sl&lt;IAuthenticationFacade&gt;(),
+              socialSigninContext: sl&lt;SocialSigninContext&gt;(),
+            ),
+          ),
+          BlocProvider(
+            lazy: false,
+            create: (context) =&gt; PickWinnerBloc(
+              postDetailsBloc: BlocProvider.of&lt;PostDetailsBloc&gt;(context),
+              iPickWinnerFacade: sl&lt;IPickWinnerFacade&gt;(),
+              winnersCubit: BlocProvider.of&lt;WinnersCubit&gt;(context),
+              giveawayDetailsBloc:
+                  BlocProvider.of&lt;GiveawayDetailsBloc&gt;(context),
+              ratingCubit: BlocProvider.of&lt;RatingCubit&gt;(context),
+              homeUiCubit: BlocProvider.of&lt;HomeUiCubit&gt;(context),
+              authenticatonBloc: BlocProvider.of&lt;AuthenticatonBloc&gt;(context),
+            )..add(const PreloadConfetti()),
+          ),
+          BlocProvider(
+            create: (_) =&gt; CertificateBloc(
+              sl&lt;ICertificateFacade&gt;(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) =&gt; BetterPlayerCubit(
+              sl&lt;IBetterPlayerFacade&gt;(),
+            ),
+          ),
+          BlocProvider(
+            lazy: false,
+            create: (context) =&gt; EditVideoCubit(
+              pickWinnerBloc: BlocProvider.of&lt;PickWinnerBloc&gt;(context),
+              iEditVideoFacade: sl&lt;IEditVideoFacade&gt;(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) =&gt; GiveawayCompletedBloc(
+              sl&lt;IGiveawayCompletedFacade&gt;(),
+            ),
+          ),
+          BlocProvider(
+            lazy: false,
+            create: (context) =&gt; CampaignFilterCubit(),
+          ),
+          BlocProvider(
+            lazy: false,
+            create: (context) =&gt; CampaignBloc(
+              iCampaignFacade: sl&lt;ICampaignFacade&gt;(),
+              campaignFilterCubit:
+                  BlocProvider.of&lt;CampaignFilterCubit&gt;(context),
+            ),
+          ),
+          BlocProvider(
+            create: (context) =&gt; AddLanguageCubit(),
+          ),
+          BlocProvider(
+            create: (context) =&gt; AudioPlayerCubit(
+              sl&lt;IAudioPlayerFacade&gt;(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) =&gt; AudioRecorderCubit(
+              iAudioRecorderFacade: sl&lt;IAudioRecorderFacade&gt;(),
+              audioPlayerCubit: BlocProvider.of&lt;AudioPlayerCubit&gt;(context),
+            ),
+          ),
+          BlocProvider(
+            create: (context) =&gt; MyCampaignsBloc(
+              sl&lt;IMyCampaignsFacade&gt;(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) =&gt; CreateCampaignBloc(
+              myCampaignsBloc: BlocProvider.of&lt;MyCampaignsBloc&gt;(context),
+              audioRecorderCubit:
+                  BlocProvider.of&lt;AudioRecorderCubit&gt;(context),
+              iCreateCampaignFacade: sl&lt;ICreateCampaignFacade&gt;(),
+              giveawayDetailsBloc:
+                  BlocProvider.of&lt;GiveawayDetailsBloc&gt;(context),
+            ),
+          ),
+          BlocProvider(
+            create: (context) =&gt; CoinsBloc(
+              sl&lt;ICoinsFacade&gt;(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) =&gt; LeaderBoardBloc(
+              sl&lt;ILeaderBoardFacade&gt;(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) =&gt; RedeemCouponsBloc(
+              sl&lt;IRedeemCouponsFacade&gt;(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) =&gt; HelpCenterBloc(
+              sl&lt;IHelpCenterFacade&gt;(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) =&gt; CampaignDetailsBloc(
+              sl&lt;ICampaignDetailsFacade&gt;(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) =&gt; PreviousGiveawayBloc(
+                postDetailsBloc: BlocProvider.of&lt;PostDetailsBloc&gt;(context),
+                iPreviousGiveawayFacade: sl&lt;IPreviousGiveawayFacade&gt;(),
+                homeUiCubit: BlocProvider.of&lt;HomeUiCubit&gt;(context)),
+          ),
+          BlocProvider(
+            lazy: false,
+            create: (context) =&gt; CreatedCampaignPreviewBloc(
+              iCreatedCampaignPreviewFacade:
+                  sl&lt;ICreatedCampaignPreviewFacade&gt;(),
+              campaignDetailsBloc:
+                  BlocProvider.of&lt;CampaignDetailsBloc&gt;(context),
+              homeUiCubit: BlocProvider.of&lt;HomeUiCubit&gt;(context),
+            ),
+          ),
+          BlocProvider(
+            lazy: false,
+            create: (context) =&gt; ReactionBloc(
+              sl&lt;IReactionFacade&gt;(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) =&gt; AudioPlayerNetworkCubit(
+              sl&lt;IAudioPlayerNetworkFacade&gt;(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) =&gt; CoachMarkCubit(),
+          ),
+          BlocProvider(
+            create: (context) =&gt; NotificationsBloc(
+              sl&lt;INotificatonFacade&gt;(),
+            ),
+          ),
+        ],
+        child: MaterialApp(
+          navigatorKey: AppDetails.globalNavigatorKey,
+          title: &#39;Bingo&#39;,
+          theme: AppTheme.themeData.copyWith(
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+          ),
+          debugShowCheckedModeBanner: false,
+          home: const SplashScreen(
+            navigate: true,
+          ),
+          builder: (context, child) {
+            const ScreenUtilInit();
+            return MediaQuery(
+              data: MediaQuery.of(context).copyWith(
+                textScaler: const TextScaler.linear(1.0),
+              ),
+              child: Stack(
+                children: [
+                  child!,
+                  const DropdownAlert(),
+                ],
+              ),
+            );
+          },
+        ),
+      );
+    },
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">bingo</a></li>
+    <li><a href="../../main/main-library.html">main</a></li>
+    <li><a href="../../main/MyApp-class.html">MyApp</a></li>
+    <li class="self-crumb">build method</li>
+</ol>
+
+    <h5>MyApp class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    bingo
+      1.5.8+53
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+
